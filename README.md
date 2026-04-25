@@ -19,10 +19,9 @@ O objetivo é substituir uma abordagem homogênea de marketing e relacionamento 
 ```
 📦 customer-success-clustering
 ├── 📓 customer_segmentation_analysis.ipynb   # Notebook principal com toda a análise
-├── 📄 business_recommendations.docx          # Recomendações de negócio por cluster (1 página)
+├── 📄 business_recommendations.docx          # Recomendações de negócio por cluster
 ├── 📊 base_customer.xlsx                     # Base de dados original (fornecida pela FNAT)
-├── 📊 base_cluster.xlsx                      # Base exportada com coluna de cluster atribuída
-└── 📁 cluster_model.pkl                      # Modelo K-Means serializado para reutilização
+└── 📊 new_base_customer.xlsx                 # Base de dados fictícia para testar o predict
 ```
 
 ---
@@ -89,12 +88,6 @@ Modelo salvo com `joblib` para classificação de novos clientes via `predict()`
 | C3 | Avulsos Engajados | 19.078 | 41,6% | 0% | 100% | 26,0 | 103,6 | 11% |
 | C4 | Dormentes Recentes | 3.042 | 6,6% | 0% | 0% | 1,1 | 47,0 | 0% |
 
-### Destaques
-
-**✅ Destaque positivo — C3 (Avulsos Engajados):** maior cluster da base (41,6%), com a maior média de acessos (26) e 100% de clientes ativos. O engajamento é espontâneo — compraram cursos avulsos à vista e voltaram por motivação própria. Maior potencial de conversão para planos recorrentes.
-
-**⚠️ Destaque negativo — C2 (Assinantes em Risco):** 7.968 clientes pagam assinatura recorrente, mas 0% estão ativos, com média de apenas 6,9 acessos e taxa de renovação zero. A receita parece estável no curto prazo, mas o churn em massa está programado para o vencimento dos contratos.
-
 ---
 
 ## 🎯 Ações de negócio recomendadas
@@ -141,22 +134,6 @@ df_new['cluster'] = model.predict(X_new)
 | `joblib` | Serialização e reutilização do modelo |
 
 ---
-
-## 📚 Contexto acadêmico
-
-Este projeto foi desenvolvido como **método avaliativo** da Pós-graduação em **Data Analytics e Inteligência Artificial Aplicada a Negócios** da [FNAT — Fundação de Negócios, Analytics e Tecnologia](https://fnat.com.br). O case e a base de dados foram fornecidos pela instituição.
-
-### Critérios de avaliação
-
-| Critério | Peso |
-|---|---|
-| Pré-processamento (seleção de features, tratamento e justificativas) | 2,5 |
-| Modelagem (K-Means e Método Elbow) | 2,5 |
-| Interpretação (análise de perfis e nomeação dos clusters) | 2,5 |
-| Ações de negócio (relevância e viabilidade das recomendações) | 2,5 |
-
----
-
 ## 📄 Licença
 
 Base de dados e case de negócio © FNAT — Fundação de Negócios, Analytics e Tecnologia. Uso restrito a fins acadêmicos.
